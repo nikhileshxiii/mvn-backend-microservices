@@ -1,0 +1,6 @@
+**/.idea/
+**/target/
+**/mvnw*
+**/*.mvn*/
+**/*.iml
+**/nohup.out
