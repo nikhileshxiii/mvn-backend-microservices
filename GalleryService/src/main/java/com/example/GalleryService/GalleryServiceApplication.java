@@ -8,7 +8,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 @EnableEurekaClient
 public class GalleryServiceApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(GalleryServiceApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(GalleryServiceApplication.class, args);
+    }
 }

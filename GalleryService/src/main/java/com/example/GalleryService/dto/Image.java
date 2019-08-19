@@ -1,14 +1,9 @@
-package com.example.ImageService.entities;
+package com.example.GalleryService.dto;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
-@Entity
+//@Entity
 public class Image {
 
-    @Id
-    @GeneratedValue
+    //    @Id @GeneratedValue
     private int id;
 
     private int galleryId;
