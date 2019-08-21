@@ -3,28 +3,28 @@ package com.example.ZuulService.config;
 import org.springframework.beans.factory.annotation.Value;
 
 public class JwtConfig {
-	
+
     public String getUri() {
-		return Uri;
-	}
+        return Uri;
+    }
 
-	public String getHeader() {
-		return header;
-	}
+    public String getHeader() {
+        return header;
+    }
 
-	public String getPrefix() {
-		return prefix;
-	}
+    public String getPrefix() {
+        return prefix;
+    }
 
-	public int getExpiration() {
-		return expiration;
-	}
+    public int getExpiration() {
+        return expiration;
+    }
 
-	public String getSecret() {
-		return secret;
-	}
+    public String getSecret() {
+        return secret;
+    }
 
-	@Value("${security.jwt.uri:/auth/**}")
+    @Value("${security.jwt.uri:/auth/**}")
     private String Uri;
 
     @Value("${security.jwt.header:Authorization}")

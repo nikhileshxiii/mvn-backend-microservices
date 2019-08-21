@@ -1,6 +1,5 @@
 package com.example.jsonplaceholder.wrapper;
 
-import com.example.jsonplaceholder.model.Comments;
 import com.example.jsonplaceholder.valueobjects.CommentsDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

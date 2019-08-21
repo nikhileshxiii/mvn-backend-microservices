@@ -1,11 +1,7 @@
 package com.example.jsonplaceholder.valueobjects;
 
 
-import com.example.jsonplaceholder.model.base.BaseEntity;
 import lombok.*;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
 
 @Getter
 @Setter

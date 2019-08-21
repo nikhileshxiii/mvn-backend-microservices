@@ -4,8 +4,6 @@ import com.example.jsonplaceholder.model.base.BaseEntity;
 import lombok.*;
 
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 
 @Entity
 @Data
@@ -14,7 +12,7 @@ import javax.persistence.OneToOne;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Albums extends BaseEntity {
-//    @ManyToOne
+    //    @ManyToOne
     Integer userId;
     String title;
 }

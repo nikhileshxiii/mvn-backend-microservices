@@ -1,6 +1,5 @@
 package com.example.jsonplaceholder.wrapper;
 
-import com.example.jsonplaceholder.model.Users;
 import com.example.jsonplaceholder.valueobjects.UsersDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

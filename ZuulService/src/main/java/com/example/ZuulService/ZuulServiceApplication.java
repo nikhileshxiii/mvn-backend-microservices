@@ -15,24 +15,27 @@ import org.springframework.context.annotation.Bean;
 @EnableZuulProxy
 public class ZuulServiceApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(ZuulServiceApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(ZuulServiceApplication.class, args);
+    }
 
-	@Bean
-	public PreFilter preFilter() {
-		return new PreFilter();
-	}
-	@Bean
-	public PostFilter postFilter() {
-		return new PostFilter();
-	}
-	@Bean
-	public ErrorFilter errorFilter() {
-		return new ErrorFilter();
-	}
-	@Bean
-	public RouteFilter routeFilter() {
-		return new RouteFilter();
-	}
+    @Bean
+    public PreFilter preFilter() {
+        return new PreFilter();
+    }
+
+    @Bean
+    public PostFilter postFilter() {
+        return new PostFilter();
+    }
+
+    @Bean
+    public ErrorFilter errorFilter() {
+        return new ErrorFilter();
+    }
+
+    @Bean
+    public RouteFilter routeFilter() {
+        return new RouteFilter();
+    }
 }

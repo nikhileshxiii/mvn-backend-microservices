@@ -1,6 +1,5 @@
 package com.example.jsonplaceholder.wrapper;
 
-import com.example.jsonplaceholder.model.Albums;
 import com.example.jsonplaceholder.valueobjects.AlbumsDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
