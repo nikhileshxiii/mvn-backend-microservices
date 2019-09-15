@@ -1,0 +1,58 @@
+version: "3"
+services:
+
+  postgresql-db:
+    image: postgres
+    restart: always
+    networks:
+      - backend
+    environment:
+      POSTGRES_PASSWORD:  password
+      POSTGRES_DB:  testdb
+      POSTGRES_USER:  postgres
+
+  eureka:
+    build: ./eureka-server/
+    ports:
+      - 8761
+    depends_on:
+      - "db"
+    networks:
+      - backend
+      - frontend
+
+  gallery-service:
+    build: ./GalleryService/
+    ports:
+      - 8100
+    depends_on:
+      - "eureka"
+      - "db"
+    networks: 
+      - backend
+      - frontend
+
+  image-service:
+    build: ./ImageService/
+    ports:
+      - 8200
+    depends_on:
+      - "eureka"
+      - "db"
+    networks: 
+      - backend
+      - frontend
+
+  angular:
+    build: ./angular-fe/
+    ports:
+      - 4200
+    depends_on:
+      - image
+      - gallery
+    networks:
+      - frontend
+
+networks:
+  backend:
+  frontend:
