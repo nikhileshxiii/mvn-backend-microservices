@@ -6,8 +6,15 @@ pipeline {
         }
     }
     stages {
+        stage('cleanWs') {
+            steps {
+                cleanWs
+            }
+        }
         stage('checkout scm') {
-            checkout scm
+            steps {
+                checkout scm
+            }
         }
         stage('clean') {
             steps {
