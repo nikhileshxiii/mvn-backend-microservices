@@ -18,6 +18,11 @@ public class ImageController {
     @Autowired
     private ImageRepository imageRepository;
 
+    @RequestMapping("/home")
+    public String getHome() {
+        return "Welcome to Image Application";
+    }
+
     @RequestMapping("/all")
     public List<Image> getImages() {
         return imageRepository.findAll();
@@ -36,7 +41,9 @@ public class ImageController {
     }
 
     @PostMapping("/save")
-    public Image saveImage(@RequestBody Image image) {
-        return imageRepository.save(image);
+    public int saveImage(@org.jetbrains.annotations.NotNull @RequestBody Image image) {
+        image.setGalleryId((Integer)image.getGalleryId());
+        Image savedImage = imageRepository.save(image);
+        return savedImage.getId();
     }
 }
