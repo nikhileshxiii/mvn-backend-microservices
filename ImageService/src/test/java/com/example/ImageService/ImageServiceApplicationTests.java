@@ -13,5 +13,4 @@ public class ImageServiceApplicationTests {
     public void contextLoads() {
     }
 
-
 }

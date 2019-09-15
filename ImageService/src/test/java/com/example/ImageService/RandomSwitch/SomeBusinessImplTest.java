@@ -1,9 +1,11 @@
 package com.example.ImageService.RandomSwitch;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import static org.junit.Assert.assertEquals;
@@ -19,11 +21,14 @@ public class SomeBusinessImplTest {
     @InjectMocks
     SomeBusinessImpl someBusinessImpl;
 
+    @Before
+    public void setSomeBusinessImpl() {
+        MockitoAnnotations.initMocks(this);
+    }
+
     @Test
     public void testSomeBusinessImpl() {
-        when(someBusinessImpl.something()).thenReturn(5);
         int res = someBusinessImpl.something();
         assertEquals(5, res);
-        fail("Not yet implemented");
     }
 }
