@@ -10,13 +10,20 @@ pipeline {
             checkout scm
         }
         stage('clean') {
-            sh 'mvn clean'
+            steps {
+                sh 'mvn clean'
+            }
         }
         stage('compile') {
-            sh 'mvn compile'
+            steps {
+                sh 'mvn compile'
+            }
         }
         stage('test') {
-            sh 'mvn test'
+            steps {
+                sh 'mvn test'
+            }
+
         }
     }
 
