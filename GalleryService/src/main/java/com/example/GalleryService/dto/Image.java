@@ -1,9 +1,13 @@
 package com.example.GalleryService.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 //@Entity
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Image {
 
-    //    @Id @GeneratedValue
+    @JsonIgnore
     private int id;
 
     private int galleryId;

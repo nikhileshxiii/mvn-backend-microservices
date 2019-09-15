@@ -1,6 +1,7 @@
 package com.example.GalleryService.exceptions;
 
 import lombok.extern.log4j.Log4j;
+import lombok.extern.log4j.Log4j2;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -9,7 +10,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.client.HttpClientErrorException;
 
-@Log4j
+@Log4j2
 @ControllerAdvice
 public class GalleryControllerExceptionHandler {
 
@@ -17,8 +18,8 @@ public class GalleryControllerExceptionHandler {
 
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler(HttpClientErrorException.NotFound.class)
-    public void handleNotFound(HttpClientErrorException.NotFound) {
-        logger.error("Requested resource not found");
+    public void handleNotFound(HttpClientErrorException.NotFound exception) {
+        logger.error("Requested resource not found" + exception);
     }
 
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
