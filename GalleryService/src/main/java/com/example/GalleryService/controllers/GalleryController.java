@@ -3,6 +3,7 @@ package com.example.GalleryService.controllers;
 
 import com.example.GalleryService.entities.Gallery;
 import com.example.GalleryService.service.GalleryService;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.*;
@@ -12,12 +13,12 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/galleries")
+@Log4j2
 public class GalleryController {
     private RestTemplate restTemplate;
     private Environment env;
     private GalleryService galleryService;
 
-    //    @Value("${local.server.port}")
     @Value("${server.port}")
     private String port;
 
@@ -32,7 +33,7 @@ public class GalleryController {
         // This is useful for debugging
         // When having multiple instance of gallery service running at different ports.
         // We load balance among them, and display which instance received the request.
-        return "Hello from Gallery Service running at port: " + port;
+        return "Hello from Gallery Service";
     }
 
     @GetMapping("/all")
@@ -48,7 +49,14 @@ public class GalleryController {
 
     @PostMapping("/save")
     public Gallery saveGallery(@RequestBody Gallery gallery) {
-        return galleryService.saveGallery(gallery);
+        log.info("Gallery gallery = {}", gallery.toString());
+//        return galleryService.saveGallery(gallery);
+        return gallery;
+    }
+
+    @PostMapping("/testpost")
+    public String testPost() {
+        return "test Post";
     }
 
     // -------- Admin Area --------
@@ -56,6 +64,6 @@ public class GalleryController {
     // We'll add the logic of role based auth later
     @RequestMapping("/admin")
     public String homeAdmin() {
-        return "This is the admin area of Gallery service running at port: " + port;
+        return "This is the admin area of Gallery service";
     }
 }
