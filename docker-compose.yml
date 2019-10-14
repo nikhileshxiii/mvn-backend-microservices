@@ -1,0 +1,29 @@
+version: "3.5"
+services:
+  image-service:
+    container_name: image-service
+    build:
+      context: ImageService/
+    networks:
+      - middleware
+      - backend
+  gallery-service:
+    container_name: gallery-service
+    build:
+      context: GalleryService/
+    networks:
+      - backend
+      - middleware
+  eureka-service:
+    networks:
+      - middleware
+  postgres:
+    networks:
+      - backend
+
+volumes:
+  postgres:
+
+networks:
+  backend:
+  middleware:
