@@ -3,26 +3,45 @@ services:
   image-service:
     container_name: image-service
     build:
-      context: ImageService/
+      context: image-service/
     networks:
       - middleware
       - backend
+    depends_on:
+      - postgres
+      - eureka-service
   gallery-service:
     container_name: gallery-service
     build:
-      context: GalleryService/
+      context: gallery-service/
     networks:
       - backend
       - middleware
+    depends_on:
+      - postgres
+      - eureka-service
   eureka-service:
+    build:
+      context: eureka-server/
     networks:
       - middleware
+    depends_on:
+      - postgres
   postgres:
     networks:
       - backend
+    image: postgres
+    volumes:
+      - postgresql_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: postgres
+      #            POSTGRES_DB: testdb
 
 volumes:
-  postgres:
+  postgresql_data:
 
 networks:
   backend:
